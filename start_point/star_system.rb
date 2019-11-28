@@ -15,9 +15,19 @@ class StarSystem
     @planets.find { | planet | planet.name == planet_name }
   end
 
+def get_largest_planet
+  @planets.max { |a , b |a.diameter <=> b.diameter
+  }
+end
 
+def get_smallest_planet
+  @planets.min { |a , b |a.diameter <=> b.diameter
+  }
+end
 
-
+def get_planets_with_no_moons
+  @planets.find_all { |planet| planet.number_of_moons == 0 }
+end
 
 
 
