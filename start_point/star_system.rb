@@ -28,7 +28,21 @@ end
 def get_planets_with_no_moons
   @planets.find_all { |planet| planet.number_of_moons == 0 }
 end
+def get_planets_with_more_moons(number)
+  mapped_planets = @planets.map { |planet|
+    if planet.number_of_moons > number
+    planet.name
+  end}
+  return mapped_planets.compact
+end
 
+def get_number_of_planets_closer_than(distance)
+  mapped_planets = @planets.map { |planet|
+    if planet.distance_from_sun < distance
+    planet.name
+  end}
+  return mapped_planets.compact.length
+end
 
 
 end
